@@ -1,6 +1,6 @@
-# 和暦と元号の追加
+# 和暦の取得、元号の追加
 
-## 和暦を得る
+## 和暦の取得
 
 `java.time.chrono.JapaneseDate`を作って`java.time.format.DateTimeFormatter`で`Gy年M月d日`といったパターンでフォーマットすると`令和4年5月1日`のような文字列を得られる。
 
