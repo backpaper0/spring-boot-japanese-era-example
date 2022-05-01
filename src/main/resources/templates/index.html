@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和暦</title>
+</head>
+
+<body>
+	<h1>和暦</h1>
+
+	<h2>一覧</h2>
+	<ul>
+		<li th:each="japaneseEra : ${japaneseEras}" th:text="${japaneseEra}"></li>
+	</ul>
+
+	<h2>和暦変換</h2>
+	<form method="POST" th:action="@{/}" th:object="${japaneseEraForm}">
+		<p>
+			<input type="date" th:field="*{date}" /> <span
+				th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+			<button type="submit">変換する</button>
+		</p>
+	</form>
+	<p th:if="${date}" th:text="${@viewHelper.format(date)}"></p>
+</body>
+
+</html>
